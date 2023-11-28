@@ -48,10 +48,11 @@ public class MyController {
 	}
 	
 	// update the course
-	@PutMapping("/courses") ///{courseId}
-	public Course updateCourse( @RequestBody Course course) { //@PathVariable("id") Long courseId,
-//		course.setId(courseId);
+	@PutMapping("/courses/{courseId}") ///{courseId}
+	public Course updateCourse(@PathVariable("courseId") Long courseId, @RequestBody Course course) { //,
+		course.setId(courseId);
 		return courseService.updateCourse(course);
+//		return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
 	}
 	
 	
